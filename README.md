@@ -14,13 +14,13 @@
  
  7.进程的崩溃处理与恢复 共享内存 数据逻辑分离
  
- 8.消息的可靠传输 抄tbus
+ 8.消息的可靠传输 抄tbus 在我自己手写出来之前先 搬网上开源的
  
  9.内存越界保护手段 1.系统支持mprotect 2.应用层支持 数据修改的封装  禁止共享内存数组直接的使用，禁止数据指针的直接使用
  
  10.httpserver （可以考虑其他更高效的语言）作用 对外提供服务器列表和账号认证服务 或者 接第三方sdk的服务器
  
- 11.实体编程的引入（可抄bigworld 那套） 远程rpc mailbox 思想的引入 实体在进程间的切换 同一个zoneset 只需要在 role上记一个 procid role数据只在 base上修改 （防止读取数据错误 一次rpc返回前gamebase锁住这个entity）
+ 11.实体编程的引入（可抄bigworld 那套） 远程rpc mailbox 思想的引入 实体在进程间的切换 同一个zoneset 只需要在 role上记一个 procid role数据只在 base上修改 （防止读取数据错误 一次rpc返回前gamebase锁住这个entity, 请求id + 时间 同一时刻内的请求 上一个没超时就 处理拦住下一个 或者废弃掉 前一个 ）
  
  13.网络库暂定libevent
  
